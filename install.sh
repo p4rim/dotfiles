@@ -10,11 +10,34 @@ if [[ $EUID -eq 0 ]]; then
     exit 1
 fi
 
+if [[ ! -f "$PACKAGES_FILE" ]]; then
+    echo "packages.txt not found: $PACKAGES_FILE"
+    exit 1
+fi
+
+if [[ ! -d "$DOTFILES_DIR" ]]; then
+    echo "dotfiles directory not found: $DOTFILES_DIR"
+    exit 1
+fi
+
 # Install packages
 echo "==> Installing packages..."
 
 grep -Ev '^[[:space:]]*(#|$)' "$PACKAGES_FILE" \
     | sudo pacman -Syu --needed -
+
+# Rust
+echo "==> Setting up Rust..."
+
+rustup set profile default
+rustup toolchain install stable
+rustup default stable
+
+rustup component add \
+    rustfmt \
+    clippy \
+    rust-src \
+    rust-analyzer
 
 # Enable services
 echo "==> Enabling services..."
@@ -56,6 +79,8 @@ ZSH_PATH="$(command -v zsh)"
 if [[ "$(getent passwd "$USER" | cut -d: -f7)" != "$ZSH_PATH" ]]; then
     echo "==> Setting Zsh as default shell..."
     chsh -s "$ZSH_PATH"
+else
+    echo "==> Zsh is already the default shell."
 fi
 
 # XDG directories
