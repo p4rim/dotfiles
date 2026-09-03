@@ -103,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cx="codex --yolo"
+alias hypr="start-hyprland"
 
 
 # >>> Codex installer >>>
