@@ -1,0 +1,84 @@
+# Base
+base
+linux
+linux-firmware
+intel-ucode
+e2fsprogs
+sudo
+networkmanager
+man-db
+man-pages
+
+# Desktop
+hyprland
+quickshell
+hyprpolkitagent
+qt6-wayland
+xorg-xwayland
+
+# XDG
+xdg-desktop-portal-gtk
+xdg-desktop-portal-hyprland
+xdg-utils
+xdg-user-dirs
+
+# Audio
+pipewire-pulse
+pipewire-alsa
+wireplumber
+
+# Bluetooth
+bluez
+bluez-utils
+
+# NVIDIA
+nvidia-open
+
+# Shell / terminal
+zsh
+ghostty
+tmux
+fzf
+zoxide
+stow
+
+# Development
+git
+github-cli
+neovim
+nodejs
+npm
+tree-sitter-cli
+base-devel
+ripgrep
+fd
+openssh
+
+# CLI
+fastfetch
+btop
+tree
+unzip
+tar
+gzip
+
+# Media
+yt-dlp
+ffmpeg
+mpv
+
+# Wayland utilities
+wl-clipboard
+grim
+slurp
+
+# Secrets
+oo7
+
+# Browser
+chromium
+
+# Fonts
+ttf-jetbrains-mono-nerd
+noto-fonts
+noto-fonts-emoji

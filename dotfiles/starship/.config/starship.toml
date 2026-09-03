@@ -1,0 +1,33 @@
+add_newline = false
+# iXu_:im
+format = '''
+[[┌](red)─($username)────────────────────────($time)──](red)[│](red)
+[─>](red) $directory$git_branch 
+'''
+
+[username]
+show_always = true
+style_user = "#ffffff"
+style_root = "red"
+format = ' [$user]($style) '
+
+[directory]
+format = "[($path)]($style)"
+style = "bold red"
+truncation_length = 1
+truncate_to_repo = false
+
+[git_branch]
+symbol = ""
+format = ' git:[\($branch\)](bold red)'
+
+[time]
+disabled = false
+format = " [($time)]($style) "
+time_format = "%I:%M %p"
+style = "#ffffff"
+use_12hr = true
+
+[character]
+success_symbol = '[\$](red)'
+error_symbol = '[\$](red)'
