@@ -47,6 +47,7 @@ fzf
 zoxide
 stow
 yazi
+yay-bin
 
 # Development
 git
