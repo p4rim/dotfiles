@@ -18,6 +18,7 @@ xorg-xwayland
 rofi
 hyprpaper
 mako
+dolphin
 
 # XDG
 xdg-desktop-portal-gtk
@@ -45,6 +46,7 @@ tmux
 fzf
 zoxide
 stow
+yazi
 
 # Development
 git
