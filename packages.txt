@@ -38,7 +38,7 @@ nvidia-open
 
 # Shell / terminal
 zsh
-ghostty
+foot
 tmux
 fzf
 zoxide
