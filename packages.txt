@@ -17,6 +17,7 @@ qt6-wayland
 xorg-xwayland
 rofi
 hyprpaper
+mako
 
 # XDG
 xdg-desktop-portal-gtk
