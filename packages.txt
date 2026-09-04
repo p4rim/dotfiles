@@ -27,6 +27,7 @@ xdg-user-dirs
 pipewire-pulse
 pipewire-alsa
 wireplumber
+wiremix
 
 # Bluetooth
 bluez
