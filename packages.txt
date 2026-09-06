@@ -86,6 +86,7 @@ slurp
 
 # Secrets
 oo7
+gcr
 
 # Browser
 chromium
