@@ -1,0 +1,85 @@
+#!/usr/bin/python3
+"""A desktop-entry application menu for dmenu."""
+import configparser
+from collections import Counter
+import locale
+import os
+from pathlib import Path
+import shlex
+import shutil
+import subprocess
+import sys
+
+
+def desktop_entries():
+    roots = [os.environ.get('XDG_DATA_HOME', str(Path.home() / '.local/share'))]
+    roots += os.environ.get('XDG_DATA_DIRS', '/usr/local/share:/usr/share').split(':')
+    desktops = set(os.environ.get('XDG_CURRENT_DESKTOP', '').split(':'))
+    language = (locale.getlocale()[0] or '').split('.')[0]
+    languages = [language, language.split('_')[0]]
+    seen = set()
+    entries = []
+    for root in roots:
+        directory = Path(root) / 'applications'
+        for path in sorted(directory.rglob('*.desktop')):
+            desktop_id = str(path.relative_to(directory)).replace('/', '-')
+            if desktop_id in seen:
+                continue
+            seen.add(desktop_id)
+            parser = configparser.ConfigParser(interpolation=None, strict=False)
+            try:
+                parser.read(path, encoding='utf-8')
+                app = parser['Desktop Entry']
+                if app.get('Type') != 'Application':
+                    continue
+                if app.getboolean('Hidden', False) or app.getboolean('NoDisplay', False):
+                    continue
+                only = set(filter(None, app.get('OnlyShowIn', '').split(';')))
+                excluded = set(filter(None, app.get('NotShowIn', '').split(';')))
+                if (only and not only.intersection(desktops)) or excluded.intersection(desktops):
+                    continue
+                if app.get('TryExec') and not shutil.which(app['TryExec']):
+                    continue
+                name = next((app.get('Name[' + lang + ']') for lang in languages
+                             if app.get('Name[' + lang + ']')), app.get('Name', ''))
+                if not name or ('Exec' not in app and not app.getboolean('DBusActivatable', False)):
+                    continue
+                entries.append((name.replace('\n', ' '), desktop_id, path, dict(app)))
+            except (OSError, UnicodeError, configparser.Error, KeyError, ValueError):
+                continue
+    counts = Counter(entry[0] for entry in entries)
+    return {(name if counts[name] == 1 else f'{name} [{desktop_id}]'): (path, app)
+            for name, desktop_id, path, app in entries}
+
+
+def launch_args(path, app):
+    if app.get('terminal', 'false').lower() != 'true':
+        return ['gio', 'launch', str(path)]
+    args = []
+    for word in shlex.split(app['exec']):
+        if word == '%i':
+            if app.get('icon'):
+                args.extend(['--icon', app['icon']])
+        elif word == '%c':
+            args.append(app['name'])
+        elif word == '%k':
+            args.append(str(path))
+        elif word not in ('%f', '%F', '%u', '%U', '%d', '%D', '%n', '%N', '%v', '%m'):
+            args.append(word.replace('%%', '%'))
+    return ['kitty', '--hold', '--', *args]
+
+
+def main():
+    entries = desktop_entries()
+    selected = subprocess.run(['dmenu', '-i', *sys.argv[1:]],
+                              input='\n'.join(sorted(entries, key=str.casefold)) + '\n',
+                              text=True, capture_output=True)
+    if selected.returncode or selected.stdout.rstrip('\n') not in entries:
+        return
+    path, app = entries[selected.stdout.rstrip('\n')]
+    subprocess.Popen(launch_args(path, app), cwd=app.get('path') or None,
+                     start_new_session=True)
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,77 @@
+{
+  "hypr": [
+    ".config/hypr"
+  ],
+  "nvim": [
+    ".config/nvim"
+  ],
+  "kitty": [
+    ".config/kitty"
+  ],
+  "rofi": [
+    ".config/rofi"
+  ],
+  "btop": [
+    ".config/btop"
+  ],
+  "zed": [
+    ".config/zed"
+  ],
+  "zsh": [
+    ".zshrc",
+    ".zshenv"
+  ],
+  "bash": [
+    ".bashrc",
+    ".bash_profile",
+    ".bash_logout"
+  ],
+  "shell": [
+    ".profile"
+  ],
+  "tmux": [
+    ".tmux.conf"
+  ],
+  "emacs": [
+    ".emacs.d/init.el"
+  ],
+  "scripts": [
+    ".local/bin/dmenu-launcher"
+  ],
+  "desktop": [
+    ".config/dolphinrc",
+    ".config/mimeapps.list",
+    ".config/user-dirs.dirs",
+    ".config/user-dirs.locale"
+  ],
+  "i3": [
+    ".config/i3"
+  ],
+  "x11": [
+    ".xinitrc",
+    ".xinitrc-dwm"
+  ],
+  "git": [
+    ".gitconfig"
+  ],
+  "gh": [
+    ".config/gh/config.yml"
+  ],
+  "thunar": [
+    ".config/Thunar",
+    ".config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml"
+  ],
+  "novelwriter": [
+    ".var/app/io.novelwriter.novelwriter/config/novelwriter/novelwriter.toml"
+  ],
+  "manuskript": [
+    ".var/app/ch.theologeek.Manuskript/config/manuskript/manuskript.conf",
+    ".var/app/ch.theologeek.Manuskript/config/QtProject.conf"
+  ],
+  "gearlever": [
+    ".var/app/it.mijorus.gearlever/config/gearlever.conf"
+  ],
+  "flatpak": [
+    ".local/share/flatpak/overrides/com.onepassword.OnePassword"
+  ]
+}

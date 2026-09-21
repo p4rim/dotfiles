@@ -1,0 +1,108 @@
+[Meta]
+timeStamp = "2026-09-19 03:50:55"
+
+[Main]
+font = "Sans Serif,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0"
+lightTheme = "default_light"
+darkTheme = "default_dark"
+themeMode = "AUTO"
+icons = "material_rounded_normal"
+iconColTree = "theme"
+iconColDocs = false
+localisation = "en_GB"
+hideVScroll = false
+hideHScroll = false
+lastNotes = "0x260200f0"
+nativeFont = true
+useCharCount = false
+vimMode = true
+
+[Sizes]
+mainWindow = [2556, 1393]
+welcome = [800, 550]
+preferences = [700, 615]
+fontSelect = [700, 550]
+mainPane = [300, 2224]
+viewPane = [500, 150]
+outlinePane = [13, 13]
+searchPane = [150, 13]
+moveMainWin = true
+
+[Project]
+autoSaveProject = 60
+autoSaveDoc = 30
+emphLabels = false
+backupPath = "/home/zen/Backups"
+backupOnClose = true
+backupInterval = "session"
+askBeforeBackup = true
+askBeforeExit = true
+lastAuthor = "yousef alanazi"
+
+[Editor]
+textFont = "Sans Serif,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0"
+width = 700
+margin = 40
+tabWidth = 40
+lineHeight = 1.15
+cursorWidth = 1
+lineHighlight = false
+focusWidth = 800
+hideFocusFooter = false
+justify = false
+autoSelect = true
+autoReplace = true
+repSQuotes = true
+repDQuotes = true
+repDash = true
+repDots = true
+autoScroll = true
+autoScrollPos = 30
+scrollPastEnd = true
+fmtSQuoteOpen = "‘"
+fmtSQuoteClose = "’"
+fmtDQuoteOpen = "“"
+fmtDQuoteClose = "”"
+fmtPadBefore = ""
+fmtPadAfter = ""
+fmtPadThin = false
+spellCheck = "en_US"
+showTabsNSpaces = false
+showLineEndings = false
+showMultiSpaces = false
+scaleHeadings = true
+singleStarBold = false
+incNotesWCount = true
+showFullPath = true
+dialogStyle = 2
+allowOpenDial = true
+dialogLine = ""
+narratorBreak = ""
+narratorDialog = ""
+altDialogOpen = ""
+altDialogClose = ""
+highlightEmph = true
+dottedModCodes = false
+stopWhenIdle = true
+userIdleTime = 300
+
+[State]
+showDetailsPanel = true
+showViewerPanel = false
+showEditToolBar = false
+showSessionTime = true
+viewComments = true
+viewSynopsis = true
+viewNotes = true
+searchAuto = false
+searchCase = false
+searchWord = false
+searchRegEx = false
+searchLoop = false
+searchNextFile = false
+searchMatchCap = false
+searchProjAuto = false
+searchProjCase = false
+searchProjWord = false
+searchProjRegEx = false
+

@@ -1,0 +1,23 @@
+{
+  "extras/suckless/st/config.h": "src/st/config.h",
+  "extras/suckless/st/config.mk": "src/st/config.mk",
+  "extras/suckless/st/config.def.h": "src/st/config.def.h",
+  "extras/suckless/st/Makefile": "src/st/Makefile",
+  "extras/suckless/st/LICENSE": "src/st/LICENSE",
+  "extras/suckless/st/README": "src/st/README",
+  "extras/suckless/st/FAQ": "src/st/FAQ",
+  "extras/suckless/st/LEGACY": "src/st/LEGACY",
+  "extras/suckless/st/TODO": "src/st/TODO",
+  "extras/suckless/st/arg.h": "src/st/arg.h",
+  "extras/suckless/st/st.h": "src/st/st.h",
+  "extras/suckless/st/st.c": "src/st/st.c",
+  "extras/suckless/st/st.info": "src/st/st.info",
+  "extras/suckless/st/st.1": "src/st/st.1",
+  "extras/suckless/st/win.h": "src/st/win.h",
+  "extras/suckless/st/x.c": "src/st/x.c",
+  "extras/suckless/dwm/config.h": "builds/dwm/config.h",
+  "extras/suckless/dwm/PKGBUILD": "builds/dwm/PKGBUILD",
+  "extras/suckless/dwm/.SRCINFO": "builds/dwm/.SRCINFO",
+  "extras/suckless/dwm/dwm.install": "builds/dwm/dwm.install",
+  "extras/suckless/dwm/dwm.desktop": "builds/dwm/dwm.desktop"
+}

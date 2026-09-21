@@ -1,0 +1,15 @@
+*.swp
+*.swo
+*~
+.DS_Store
+.env
+.env.*
+*.pem
+*.key
+__pycache__/
+.stow-backups/
+.backups/
+*.before-*
+*.o
+*.pkg.tar.*
+stow/gh/.config/gh/hosts.yml
