@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:monospace 14 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -101,7 +101,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+t floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -164,7 +164,7 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
@@ -186,8 +186,33 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  status_command i3status
+        status_command i3status
 }
 
-# my modifications
-exec_always --no-startup-id xset r rate 200 60
+# My modifications
+
+# Notifications 
+exec --no-startup-id dunst
+
+# Wallpaper
+exec --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
+
+# Polkit authentication dialog
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
+
+# NetworkManager tray
+exec --no-startup-id nm-applet
+
+# Lock before suspend
+exec --no-startup-id xss-lock -- i3lock -n
+
+# Custom Keys
+
+# Lock
+bindsym $mod+Shift+x exec --no-startup-id i3lock -c 111111
+
+# File manager
+bindsym $mod+Shift+f exec --no-startup-id thunar
+
+# Repeat keys
+exec --no-startup-id xset r rate 200 60
