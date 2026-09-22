@@ -44,11 +44,7 @@
     ".config/user-dirs.dirs",
     ".config/user-dirs.locale"
   ],
-  "i3": [
-    ".config/i3"
-  ],
   "x11": [
-    ".xinitrc",
     ".xinitrc-dwm"
   ],
   "git": [

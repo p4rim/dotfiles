@@ -21,7 +21,6 @@ For example, `stow/nvim/.config/nvim/init.lua` links to `~/.config/nvim/init.lua
 | `emacs` | `.emacs.d/init.el` |
 | `scripts` | Executable `.local/bin/dmenu-launcher` |
 | `desktop` | Dolphin settings, MIME associations, and XDG user directories |
-| `i3`, `x11` | i3 configuration and X11 startup files (i3 is the default) |
 | `git`, `gh` | Git identity/preferences and GitHub CLI settings, without login tokens |
 | `thunar` | Thunar shortcuts, custom actions, and Xfconf preferences |
 | `novelwriter`, `manuskript`, `gearlever` | Flatpak app preferences, including retained settings for removed apps |
@@ -190,8 +189,7 @@ git commit -m "Save current Arch Linux dotfiles"
    The retained `novelwriter` and `manuskript` settings use application IDs
    `io.novelwriter.novelwriter` and `ch.theologeek.Manuskript`, respectively;
    these apps are no longer in the installed-app inventory.
-5. Start Hyprland with `start-hyprland`. The optional `x11` package's `.xinitrc`
-   starts i3 with `startx`; `.xinitrc-dwm` preserves the separate dwm session.
+5. Start Hyprland with `start-hyprland`.
 
 ### Local st and dwm builds
 

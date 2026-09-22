@@ -18,8 +18,7 @@ The snapshot was checked against the local system after synchronization.
   helper passed shell syntax checks. JSON manifests/lockfile, Thunar XML, and the
   Python launcher parsed successfully.
 - The saved tmux configuration loaded in a separate temporary server; mouse,
-  status bar, and Wayland clipboard settings were verified. i3's config checker
-  passed.
+  status bar, and Wayland clipboard settings were verified.
 - A scan for common private keys, token formats, credential assignments, and
   URLs containing passwords found no matches in the exported repository.
 

@@ -27,9 +27,6 @@ gst-plugin-pipewire
 hyprland
 hyprpaper
 hyprpolkitagent
-i3-wm
-i3lock
-i3status
 intel-ucode
 kitty
 libpulse
@@ -93,7 +90,6 @@ xorg-xinit
 xorg-xrandr
 xorg-xset
 xorg-xwayland
-xss-lock
 yazi
 yt-dlp
 zed
