@@ -1,6 +1,6 @@
 local mainMod = "SUPER"
 local terminal = "kitty"
-local fileManager = "dolphin"
+local fileManager = "thunar"
 local browser = "chromium"
 local appLauncher = "rofi -show drun"
 -- local dmenu_launcher = "/home/zen/.local/bin/dmenu-launcher"
@@ -8,6 +8,7 @@ local appLauncher = "rofi -show drun"
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + W", hl.dsp.window.close())
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("waypaper"))
 hl.bind("SUPER + SHIFT + Q", hl.dsp.window.kill({}))
 hl.bind(
 	mainMod .. " + M",

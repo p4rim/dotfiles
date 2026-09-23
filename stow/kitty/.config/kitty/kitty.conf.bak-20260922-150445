@@ -1,10 +1,7 @@
 # Font collection -- keep exactly one font_family line uncommented.
 # To switch: comment the active line, uncomment a choice below, save,
 # then press Ctrl+Shift+F5 to reload Kitty.
-# font_family Departure Mono
-
-# Sergamon: locally patched with the full Nerd Font icon set.
-font_family Sergamon Nerd Font Mono
+font_family Departure Mono
 
 # Narrow coding font: tight columns, smooth letterforms.
 # font_family IosevkaTerm Nerd Font Mono
@@ -24,9 +21,6 @@ font_family Sergamon Nerd Font Mono
 # Original clean, non-pixel fallback.
 # font_family Liberation Mono
 
-# JetBrains Mono: coding font with ligatures and Nerd Font icons.
-# font_family JetBrainsMono Nerd Font Mono
-
 # Smooth retro / coding collection (all installed).
 # IBM mainframe terminal heritage -- try this first for the 1980s mood.
 # font_family 3270 Nerd Font Mono
@@ -36,9 +30,7 @@ font_family Sergamon Nerd Font Mono
 # font_family Hack Nerd Font Mono
 
 # Match st's 24-pixel font at 96 DPI (Kitty uses points).
-font_size 24
-# Tighter vertical spacing; use 100% to restore the font default.
-# modify_font cell_height 90%
+font_size 24 
 cursor_shape block
 cursor_blink_interval 0
 shell_integration no-cursor
