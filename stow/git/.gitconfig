@@ -1,6 +1,7 @@
 [user]
 	name = zen
 	email = p4rim@proton.me
+	signingKey = /home/zen/.ssh/id_ed25519
 [core]
     editor = nvim
 	pager = delta
@@ -11,3 +12,7 @@
 	navigate = true
 [init]
 	defaultBranch = master
+[gpg]
+	format = ssh
+[commit]
+	gpgSign = true
