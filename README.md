@@ -171,6 +171,58 @@ git commit -m "Save current Arch Linux dotfiles"
 
 ## Additional settings
 
+### Git defaults and signing
+
+`stow/git/.gitconfig` preserves the Git identity and uses Neovim as the editor,
+delta for diffs (including `git add -p`), and `master` for newly initialized
+repositories. This does not rename existing branches. Install `neovim` and
+`git-delta` alongside Git. Delta's `navigate` option enables `n`/`N` navigation.
+
+Preview/install this package with `./scripts/stow.sh --simulate git` and
+`./scripts/stow.sh --apply git`, backing up an existing `~/.gitconfig` first.
+Once linked, `git config --global` edits the repository copy. For example:
+
+```sh
+git config --global core.editor nvim
+git config --global init.defaultBranch master
+```
+
+Optional defaults to consider: `fetch.prune = true` removes stale remote-tracking
+branches on fetch; `pull.ff = only` refuses divergent pulls until you explicitly
+merge or rebase; `merge.conflictStyle = zdiff3` includes base context in conflicts.
+Set each with `git config --global KEY VALUE` if you want that behavior.
+
+Commit signing is not enabled until you choose and configure a key. For SSH
+signing, use an existing signing key or generate a dedicated one (choose an
+unused filename and a passphrase):
+
+```sh
+ssh-keygen -t ed25519 -f ~/.ssh/git_signing -C "Git signing"
+git config --global gpg.format ssh
+git config --global user.signingKey ~/.ssh/git_signing
+git config --global commit.gpgSign true
+```
+
+The config stores only the key path; keep the private key outside this repo.
+Register `~/.ssh/git_signing.pub` as a signing key with your Git hosting provider
+for hosted verification. To verify locally, create an allowed-signers file:
+
+```sh
+mkdir -p ~/.config/git
+printf '%s %s\n' "$(git config --global user.email)" "$(cat ~/.ssh/git_signing.pub)" >> ~/.config/git/allowed_signers
+git config --global gpg.ssh.allowedSignersFile ~/.config/git/allowed_signers
+# After creating a signed commit:
+git verify-commit HEAD
+```
+
+Alternatively, for an existing GPG signing key, use `gpg.format openpgp`, set
+`user.signingKey` to its full fingerprint (from
+`gpg --list-secret-keys --keyid-format=long`), and set `commit.gpgSign true`.
+Optional `tag.gpgSign true` signs tags by default too.
+
+References: [Git configuration](https://git-scm.com/docs/git-config) and
+[delta setup](https://dandavison.github.io/delta/get-started.html).
+
 ### Fresh Arch installation
 
 1. Install the applications you want before starting the desktop. The native and

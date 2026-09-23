@@ -1,0 +1,13 @@
+[user]
+	name = zen
+	email = p4rim@proton.me
+[core]
+    editor = nvim
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+[init]
+	defaultBranch = master
