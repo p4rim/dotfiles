@@ -1,0 +1,143 @@
+# Explicitly installed native Arch Linux packages
+# Grouped by purpose; each entry is package-name - description.
+
+# Base system, boot, firmware and storage
+# ---------------------------------------
+base - Meta-package that pulls in the essential components of an Arch Linux system.
+base-devel - Meta-package that installs standard tools for building Arch Linux packages.
+btrfs-progs - Tools for creating, checking and managing Btrfs filesystems.
+efibootmgr - Tool for viewing and changing UEFI boot entries and boot order.
+intel-ucode - CPU microcode updates for Intel processors.
+linux - Linux kernel and modules that connect the operating system to your hardware.
+linux-firmware - Meta-package that installs firmware for common hardware devices.
+mkinitcpio - Tool that builds the initial boot image used to start Linux.
+nvidia-open - Open NVIDIA kernel modules for supported NVIDIA graphics cards.
+sof-firmware - Sound Open Firmware for supported audio processors.
+zram-generator - Systemd generator for configuring compressed RAM devices, commonly used for swap.
+
+# Dotfile management
+# ------------------
+stow - Symlink manager commonly used to organize and install dotfiles.
+
+# Shell, terminal and command-line utilities
+# ------------------------------------------
+fd - Command-line tool for quickly finding files and directories.
+fzf - Interactive fuzzy finder for selecting files, command history and other text.
+kitty - GPU-accelerated terminal emulator with tabs and split windows.
+ripgrep - Fast command-line tool for searching text inside files.
+tmux - Terminal multiplexer that keeps sessions running and organizes panes and windows.
+tree - Tool that displays directories and files as a tree.
+unzip - Tool for listing and extracting ZIP archives.
+zoxide - Smarter cd command that remembers frequently visited directories.
+zsh - Interactive shell with scripting, completion and customization features.
+
+# System monitoring and manuals
+# -----------------------------
+btop - Terminal monitor for CPU, memory, disks, network traffic and processes.
+fastfetch - Tool that displays a summary of your system and hardware in the terminal.
+man-db - Tools for reading and indexing command-line manual pages.
+man-pages - Reference manuals for Linux system calls, library functions and related interfaces.
+
+# Development and source control
+# ------------------------------
+bun - JavaScript and TypeScript runtime with a package manager, bundler and test runner.
+git - Version control system for tracking source changes and collaborating on code.
+git-delta - Viewer that adds syntax highlighting and readable formatting to Git diffs.
+github-cli - Command-line tool for working with GitHub repositories, issues and pull requests.
+neovim - Extensible terminal text editor for editing code, with plugins and scripting support.
+nodejs - Runtime for running JavaScript outside a web browser.
+npm - Package manager for installing JavaScript dependencies and running project scripts.
+tree-sitter-cli - Tools for developing, testing and using Tree-sitter syntax parsers.
+
+# Networking and remote access
+# ----------------------------
+network-manager-applet - Desktop tray applet for managing NetworkManager connections.
+networkmanager - Service and tools for managing wired, wireless and other network connections.
+openssh - Client and server tools for encrypted remote login and file transfer over SSH.
+wpa_supplicant - Service that handles authentication for Wi-Fi and other supported networks.
+
+# Security, passwords and authorization
+# -------------------------------------
+gcr - Library for displaying and handling certificates, keys and other cryptographic data.
+hyprpolkitagent - Graphical authentication agent that displays privilege prompts in Hyprland.
+oo7 - Secret Service provider that lets applications store and retrieve secrets.
+polkit-gnome - Graphical authentication agent for applications requesting elevated privileges.
+sudo - Tool that lets authorized users run commands as root or another user.
+ufw - Command-line firewall manager for controlling incoming and outgoing traffic.
+
+# Wayland, Hyprland and desktop integration
+# -----------------------------------------
+hyprland - Dynamic tiling Wayland compositor that manages windows and desktop input.
+hyprpaper - Wallpaper service for Wayland desktops, designed for Hyprland.
+mako - Lightweight notification daemon for Wayland desktops.
+qt6-wayland - Support for running Qt 6 applications on Wayland and building Qt-based compositors.
+quickshell - Qt Quick toolkit for building custom desktop bars, panels and widgets.
+waybar - Customizable status bar for Wayland desktops.
+wl-clipboard - Command-line tools for copying and pasting through the Wayland clipboard.
+xdg-desktop-portal-hyprland - Desktop portal backend for Hyprland, including screen sharing support.
+xdg-user-dirs - Tool that manages standard user folders such as Documents and Downloads.
+
+# X11, launchers and desktop appearance
+# -------------------------------------
+autorandr - Tool that detects connected monitors and applies saved X11 display layouts.
+dmenu - Lightweight text menu commonly used as an application launcher on X11.
+dunst - Lightweight, customizable desktop notification daemon.
+lxappearance - Graphical tool for selecting GTK themes, icons and fonts.
+rofi - Application launcher, window switcher and customizable selection menu.
+xorg-server - X11 display server for running graphical applications and desktops.
+xorg-xinit - Tools, including startx, for starting an X11 session.
+xorg-xrandr - Command-line tool for configuring X11 monitor resolutions and layouts.
+xorg-xset - Tool for changing X11 preferences such as screen blanking and keyboard settings.
+xorg-xwayland - Compatibility server that runs X11 applications inside a Wayland session.
+
+# File managers and desktop file services
+# ---------------------------------------
+dolphin - KDE graphical file manager with tabs, previews and split views.
+gvfs - Virtual filesystem services that let supported applications access remote and other locations.
+thunar - Lightweight graphical file manager from the Xfce desktop.
+tumbler - Background service that generates file thumbnails for supported applications.
+yazi - Terminal file manager with previews and keyboard-driven navigation.
+
+# Browsers and communication
+# --------------------------
+chromium - Open-source web browser based on the Chromium project.
+discord - Application for community text chat, voice calls and video calls.
+firefox - Mozilla web browser for browsing websites and running web applications.
+
+# Audio services and controls
+# ---------------------------
+gst-plugin-pipewire - Plugin that connects GStreamer multimedia applications to PipeWire.
+libpulse - Client library that lets applications connect to PulseAudio-compatible audio servers.
+pavucontrol - Graphical mixer for managing audio devices, application volumes and routing.
+pipewire - Service for routing audio and video streams between applications and devices.
+pipewire-alsa - Compatibility configuration that routes ALSA application audio through PipeWire.
+pipewire-jack - JACK-compatible implementation that routes JACK application audio through PipeWire.
+pipewire-pulse - PulseAudio-compatible server that lets PulseAudio applications use PipeWire.
+playerctl - Command-line tool for controlling playback in compatible media players.
+wiremix - Terminal audio mixer for PipeWire.
+wireplumber - Session manager that controls PipeWire device policies and stream routing.
+
+# Images, screenshots and multimedia
+# ----------------------------------
+feh - Lightweight image viewer that can also set X11 wallpapers.
+ffmpeg - Command-line tools for recording, converting and processing audio and video.
+flameshot - Screenshot tool with annotation and editing controls.
+grim - Tool for capturing screenshots on supported Wayland compositors.
+mpv - Media player for local and streamed audio and video.
+slurp - Tool for selecting a screen region on Wayland, often used with screenshot tools.
+yt-dlp - Command-line downloader for video and audio from supported websites.
+
+# Virtual machines
+# ----------------
+gnome-boxes - Graphical application for creating and running virtual machines.
+
+# Fonts
+# -----
+noto-fonts - General-purpose Noto fonts covering many languages and writing systems.
+noto-fonts-cjk - Noto fonts for Chinese, Japanese and Korean text.
+noto-fonts-emoji - Noto color emoji font.
+terminus-font - Monospaced bitmap font for terminals, consoles and other fixed-width text.
+ttf-dejavu - General-purpose font family with broad character coverage.
+ttf-jetbrains-mono - Monospaced font designed for reading and writing code.
+ttf-jetbrains-mono-nerd - JetBrains Mono with additional icons and symbols for terminal interfaces.
+ttf-liberation - Fonts with metrics compatible with Arial, Times New Roman and Courier New.
