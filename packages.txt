@@ -79,15 +79,9 @@ xdg-user-dirs - Tool that manages standard user folders such as Documents and Do
 
 # X11, launchers and desktop appearance
 # -------------------------------------
-autorandr - Tool that detects connected monitors and applies saved X11 display layouts.
 dmenu - Lightweight text menu commonly used as an application launcher on X11.
-dunst - Lightweight, customizable desktop notification daemon.
 lxappearance - Graphical tool for selecting GTK themes, icons and fonts.
 rofi - Application launcher, window switcher and customizable selection menu.
-xorg-server - X11 display server for running graphical applications and desktops.
-xorg-xinit - Tools, including startx, for starting an X11 session.
-xorg-xrandr - Command-line tool for configuring X11 monitor resolutions and layouts.
-xorg-xset - Tool for changing X11 preferences such as screen blanking and keyboard settings.
 xorg-xwayland - Compatibility server that runs X11 applications inside a Wayland session.
 
 # File managers and desktop file services
@@ -119,7 +113,6 @@ wireplumber - Session manager that controls PipeWire device policies and stream 
 
 # Images, screenshots and multimedia
 # ----------------------------------
-feh - Lightweight image viewer that can also set X11 wallpapers.
 ffmpeg - Command-line tools for recording, converting and processing audio and video.
 flameshot - Screenshot tool with annotation and editing controls.
 grim - Tool for capturing screenshots on supported Wayland compositors.

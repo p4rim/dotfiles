@@ -10,12 +10,10 @@ chromium
 discord
 dmenu
 dolphin
-dunst
 efibootmgr
 emacs
 fastfetch
 fd
-feh
 ffmpeg
 flatpak
 fzf
@@ -85,10 +83,6 @@ xclip
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 xdg-user-dirs
-xorg-server
-xorg-xinit
-xorg-xrandr
-xorg-xset
 xorg-xwayland
 yazi
 yt-dlp

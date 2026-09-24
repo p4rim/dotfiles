@@ -1,4 +1,4 @@
-# nero
+# dotfiles
 
 Personal Arch Linux dotfiles, refreshed from the live system on 2026-09-21.
 Configuration contents and executable permissions are preserved. Creating this
@@ -50,7 +50,7 @@ Install GNU Stow and Git on Arch:
 
 ```sh
 sudo pacman -S --needed stow git
-cd ~/Projects/nero
+cd ~/dotfiles
 ```
 
 Review `metadata/packages-native.txt` and `metadata/packages-foreign.txt` for the
@@ -90,7 +90,7 @@ so application-generated files are less likely to end up inside the repository.
 Preview first (makes no changes):
 
 ```sh
-cd ~/Projects/nero
+cd ~/dotfiles
 ./scripts/stow.sh --simulate
 ```
 
@@ -117,7 +117,7 @@ import json
 import shutil
 
 home = Path.home()
-backup = home / ('nero-backup-' + datetime.now().strftime('%Y%m%d-%H%M%S-%f'))
+backup = home / ('dotfiles-backup-' + datetime.now().strftime('%Y%m%d-%H%M%S-%f'))
 backup.mkdir()
 packages = json.loads(Path('metadata/home-paths.json').read_text())
 for paths in packages.values():
@@ -251,13 +251,13 @@ These programs use compile-time configuration, so their files belong under
 Build in a separate directory so generated files stay out of the repository:
 
 ```sh
-mkdir -p ~/builds/nero-st ~/builds/nero-dwm
-cp -a extras/suckless/st/. ~/builds/nero-st/
-cp -a extras/suckless/dwm/. ~/builds/nero-dwm/
+mkdir -p ~/builds/dotfiles-st ~/builds/dotfiles-dwm
+cp -a extras/suckless/st/. ~/builds/dotfiles-st/
+cp -a extras/suckless/dwm/. ~/builds/dotfiles-dwm/
 # With base-devel, libx11, libxft, fontconfig and freetype2 installed:
-(cd ~/builds/nero-st && make && sudo make install)
+(cd ~/builds/dotfiles-st && make && sudo make install)
 # Review PKGBUILD, then build/install dwm with the saved config.h:
-(cd ~/builds/nero-dwm && makepkg -si)
+(cd ~/builds/dotfiles-dwm && makepkg -si)
 ```
 
 ### Service and desktop preferences
@@ -274,7 +274,7 @@ Dconf preferences can be restored explicitly in a running desktop session. This
 merges the exported keys into the current settings, replacing matching values:
 
 ```sh
-dconf dump / > "$HOME/dconf-before-nero.ini"
+dconf dump / > "$HOME/dconf-before-dotfiles.ini"
 dconf load / < extras/dconf.ini
 ```
 
