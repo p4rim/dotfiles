@@ -291,3 +291,48 @@ password-manager databases, compiled build outputs, and obsolete
 `*.before-*`/`.backups/` files. The empty GTK configuration directory has no files to
 save. Pacman configuration and private repository credentials, network profiles,
 SSH host keys, and other sensitive `/etc` data are not copied.
+
+### oo7 TTY unlocking and GCR SSH agent
+
+The `oo7` Stow package saves a PAM login template at `~/.config/oo7/pam/login`.
+It contains no passwords or keyring data. PAM reads `/etc/pam.d/login`, so install
+the template separately as a root-owned regular file:
+
+On a fresh Arch installation, install the dependencies below and install dwm
+as described above. Run these commands as your normal desktop user from this repo.
+Back up conflicting `.xinitrc`, `.zshenv`, and `.zshrc` files before Stowing.
+The saved Zsh configuration also needs the shell prerequisites listed above.
+
+```sh
+sudo pacman -S --needed oo7 gcr gcr-4 xorg-xinit stow
+./scripts/stow.sh --apply oo7 zsh x11
+./scripts/install-oo7-pam.sh
+systemctl --user enable --now oo7-daemon.service gcr-ssh-agent.socket
+```
+
+Log out of the TTY completely, log back in with your account password, then run
+`startx`. These configurations use `$HOME` and `$XDG_RUNTIME_DIR`, so the oo7/X11
+setup does not depend on this machine's username. The rest of the dotfiles may
+contain machine-specific paths. `gcr` supplies the graphical password prompter;
+`gcr-4` supplies the SSH agent. Stow alone does not install PAM hooks or enable
+services. If a future Arch PAM layout changes, the installer will stop for review.
+Keyring contents are intentionally excluded: this restores the integration,
+not saved passwords. Back up or migrate secrets separately if needed.
+
+The installer asks for sudo authentication, backs up the existing login file,
+and refuses to overwrite unrelated PAM changes. Keep a session open while testing
+password login on another TTY. The keyring password must match the account password;
+autologin cannot supply it. These hooks cover TTY login, not display managers or
+password changes made through `passwd`.
+
+The Zsh package sets `SSH_AUTH_SOCK` to `$XDG_RUNTIME_DIR/gcr/ssh` for local
+sessions. Start a new login session to propagate it to dwm and its applications.
+Stow does not enable services; run the systemctl command above when restoring.
+
+### dwm X11 session startup
+
+The `x11` Stow package provides `~/.xinitrc` for `startx`. It sources Arch's
+`/etc/X11/xinit/xinitrc.d/*.sh` before starting dwm, publishing `DISPLAY` and
+`XAUTHORITY` to D-Bus and systemd user services so GCR can show unlock dialogs.
+Back up any existing `.xinitrc`, then run `./scripts/stow.sh --apply x11`.
+Restart the X session for changes to take effect.
