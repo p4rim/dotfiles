@@ -296,8 +296,11 @@ SSH host keys, and other sensitive `/etc` data are not copied.
 ### oo7 TTY unlocking and GCR SSH agent
 
 The `oo7` Stow package saves a PAM login template at `~/.config/oo7/pam/login`.
-It contains no passwords or keyring data. PAM reads `/etc/pam.d/login`, so install
-the template separately as a root-owned regular file:
+It contains no passwords or keyring data. `scripts/stow.sh --apply` automatically
+runs its built-in PAM installation when `oo7` is selected (including when applying all packages).
+It installs `/etc/pam.d/login` as a root-owned regular file, requesting sudo only
+when it needs updating. Preview mode makes no changes; delete mode removes the
+Stow links but preserves the system PAM configuration.
 
 On a fresh Arch installation, install the dependencies below and install dwm
 as described above. Run these commands as your normal desktop user from this repo.
@@ -307,16 +310,16 @@ The saved Zsh configuration also needs the shell prerequisites listed above.
 ```sh
 sudo pacman -S --needed oo7 gcr gcr-4 xorg-xinit stow
 ./scripts/stow.sh --apply oo7 zsh x11
-./scripts/install-oo7-pam.sh
 systemctl --user enable --now oo7-daemon.service gcr-ssh-agent.socket
 ```
 
-Log out of the TTY completely, log back in with your account password, then run
-`startx`. These configurations use `$HOME` and `$XDG_RUNTIME_DIR`, so the oo7/X11
+Log out of the TTY completely, log back in with your account password, then start
+Hyprland (or `startx` for dwm). These configurations use `$HOME` and `$XDG_RUNTIME_DIR`, so the oo7/X11
 setup does not depend on this machine's username. The rest of the dotfiles may
 contain machine-specific paths. `gcr` supplies the graphical password prompter;
-`gcr-4` supplies the SSH agent. Stow alone does not install PAM hooks or enable
-services. If a future Arch PAM layout changes, the installer will stop for review.
+`gcr-4` supplies the SSH agent. The wrapper installs PAM hooks; raw GNU Stow does
+not. Services still need the systemctl command above. If a future Arch PAM layout
+changes, the installer will stop for review.
 Keyring contents are intentionally excluded: this restores the integration,
 not saved passwords. Back up or migrate secrets separately if needed.
 
@@ -325,6 +328,19 @@ and refuses to overwrite unrelated PAM changes. Keep a session open while testin
 password login on another TTY. The keyring password must match the account password;
 autologin cannot supply it. These hooks cover TTY login, not display managers or
 password changes made through `passwd`.
+
+The template includes a three-second delay on session opening after `pam_oo7`.
+This works around an oo7 0.6 TTY race: its background password sender can receive
+SIGHUP when util-linux login detaches the controlling terminal before the sender
+finishes. The delay gives the sender time to finish, including its two-second
+socket retry window. It is a timing workaround, not a guarantee under heavy load;
+remove it once the upstream sender synchronizes with PAM session opening.
+It does not delay session closing or store a password. Both hooks are optional.
+After installation, test a password login on another TTY while keeping this
+session open. Check `journalctl -b _COMM=login` for
+`Successfully sent secret to oo7 daemon` instead of `Child process terminated abnormally`.
+The sender success message confirms delivery; also confirm that opening a
+keyring-using application no longer prompts for the login keyring password.
 
 The Zsh package sets `SSH_AUTH_SOCK` to `$XDG_RUNTIME_DIR/gcr/ssh` for local
 sessions. Start a new login session to propagate it to dwm and its applications.
