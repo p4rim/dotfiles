@@ -12,6 +12,7 @@ For example, `stow/nvim/.config/nvim/init.lua` links to `~/.config/nvim/init.lua
 | Package | Configuration |
 | --- | --- |
 | `hypr` | Hyprland Lua modules, Hyprpaper, and wallpaper |
+| `niri` | Niri compositor configuration |
 | `nvim` | Neovim Lua configuration and plugin lockfile |
 | `tmux` | `.tmux.conf` |
 | `kitty`, `rofi`, `btop`, `zed` | Application settings |
@@ -336,3 +337,11 @@ The `x11` Stow package provides `~/.xinitrc` for `startx`. It sources Arch's
 `XAUTHORITY` to D-Bus and systemd user services so GCR can show unlock dialogs.
 Back up any existing `.xinitrc`, then run `./scripts/stow.sh --apply x11`.
 Restart the X session for changes to take effect.
+
+### Niri
+
+The `niri` package contains `~/.config/niri/config.kdl`. Restore with
+`./scripts/stow.sh --apply niri` after backing up any existing config. Launch
+from a TTY with `niri-session`. Edit `stow/niri/.config/niri/config.kdl` (or the
+linked home path); niri reloads changes automatically. Check syntax with
+`niri validate`.

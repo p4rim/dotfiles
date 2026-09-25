@@ -80,8 +80,6 @@ dmenu 5.4-1
 dolphin 26.08.1-1
 double-conversion 3.4.0-1
 duktape 2.7.0-7
-dwm 6.8-3
-dwm-debug 6.8-3
 e2fsprogs 1.47.4-1
 ebook-tools 0.2.2-9
 efibootmgr 18-4

@@ -44,9 +44,6 @@
     ".config/user-dirs.dirs",
     ".config/user-dirs.locale"
   ],
-  "x11": [
-    ".xinitrc-dwm"
-  ],
   "git": [
     ".gitconfig"
   ],
@@ -69,5 +66,8 @@
   ],
   "flatpak": [
     ".local/share/flatpak/overrides/com.onepassword.OnePassword"
+  ],
+  "niri": [
+    ".config/niri"
   ]
 }
