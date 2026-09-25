@@ -1,136 +1,105 @@
-# Explicitly installed native Arch Linux packages
-# Grouped by purpose; each entry is package-name - description.
+# Personal package selections — official Arch core/extra only.
+# One package per line; use # for comments. Pacman resolves dependencies.
+# Installer requirements are in config/base-packages.txt.
 
-# Base system, boot, firmware and storage
-# ---------------------------------------
-base - Meta-package that pulls in the essential components of an Arch Linux system.
-base-devel - Meta-package that installs standard tools for building Arch Linux packages.
-btrfs-progs - Tools for creating, checking and managing Btrfs filesystems.
-efibootmgr - Tool for viewing and changing UEFI boot entries and boot order.
-intel-ucode - CPU microcode updates for Intel processors.
-linux - Linux kernel and modules that connect the operating system to your hardware.
-linux-firmware - Meta-package that installs firmware for common hardware devices.
-mkinitcpio - Tool that builds the initial boot image used to start Linux.
-nvidia-open - Open NVIDIA kernel modules for supported NVIDIA graphics cards.
-sof-firmware - Sound Open Firmware for supported audio processors.
-zram-generator - Systemd generator for configuring compressed RAM devices, commonly used for swap.
+# System and hardware
+base
+base-devel
+efibootmgr
+intel-ucode
+linux
+linux-firmware
+mkinitcpio
+nvidia-open
 
 # Dotfile management
-# ------------------
-stow - Symlink manager commonly used to organize and install dotfiles.
+stow
 
-# Shell, terminal and command-line utilities
-# ------------------------------------------
-fd - Command-line tool for quickly finding files and directories.
-fzf - Interactive fuzzy finder for selecting files, command history and other text.
-kitty - GPU-accelerated terminal emulator with tabs and split windows.
-ripgrep - Fast command-line tool for searching text inside files.
-tmux - Terminal multiplexer that keeps sessions running and organizes panes and windows.
-tree - Tool that displays directories and files as a tree.
-unzip - Tool for listing and extracting ZIP archives.
-zoxide - Smarter cd command that remembers frequently visited directories.
-zsh - Interactive shell with scripting, completion and customization features.
+# Terminal and command-line tools
+fd
+fzf
+kitty
+ripgrep
+tmux
+tree
+unzip
+zoxide
 
-# System monitoring and manuals
-# -----------------------------
-btop - Terminal monitor for CPU, memory, disks, network traffic and processes.
-fastfetch - Tool that displays a summary of your system and hardware in the terminal.
-man-db - Tools for reading and indexing command-line manual pages.
-man-pages - Reference manuals for Linux system calls, library functions and related interfaces.
+# Monitoring and documentation
+btop
+fastfetch
+man-db
+man-pages
 
 # Development and source control
-# ------------------------------
-bun - JavaScript and TypeScript runtime with a package manager, bundler and test runner.
-git - Version control system for tracking source changes and collaborating on code.
-git-delta - Viewer that adds syntax highlighting and readable formatting to Git diffs.
-github-cli - Command-line tool for working with GitHub repositories, issues and pull requests.
-neovim - Extensible terminal text editor for editing code, with plugins and scripting support.
-nodejs - Runtime for running JavaScript outside a web browser.
-npm - Package manager for installing JavaScript dependencies and running project scripts.
-tree-sitter-cli - Tools for developing, testing and using Tree-sitter syntax parsers.
+git
+github-cli
+neovim
+nodejs
+npm
+tree-sitter-cli
 
 # Networking and remote access
-# ----------------------------
-network-manager-applet - Desktop tray applet for managing NetworkManager connections.
-networkmanager - Service and tools for managing wired, wireless and other network connections.
-openssh - Client and server tools for encrypted remote login and file transfer over SSH.
-wpa_supplicant - Service that handles authentication for Wi-Fi and other supported networks.
+network-manager-applet
+networkmanager
+openssh
 
-# Security, passwords and authorization
-# -------------------------------------
-gcr - Library for displaying and handling certificates, keys and other cryptographic data.
-hyprpolkitagent - Graphical authentication agent that displays privilege prompts in Hyprland.
-oo7 - Secret Service provider that lets applications store and retrieve secrets.
-polkit-gnome - Graphical authentication agent for applications requesting elevated privileges.
-sudo - Tool that lets authorized users run commands as root or another user.
-ufw - Command-line firewall manager for controlling incoming and outgoing traffic.
+# Wayland desktop and integration
+hyprland
+hyprpaper
+mako
+qt5-wayland
+qt6-wayland
+quickshell
+wl-clipboard
 
-# Wayland, Hyprland and desktop integration
-# -----------------------------------------
-hyprland - Dynamic tiling Wayland compositor that manages windows and desktop input.
-hyprpaper - Wallpaper service for Wayland desktops, designed for Hyprland.
-mako - Lightweight notification daemon for Wayland desktops.
-qt6-wayland - Support for running Qt 6 applications on Wayland and building Qt-based compositors.
-quickshell - Qt Quick toolkit for building custom desktop bars, panels and widgets.
-waybar - Customizable status bar for Wayland desktops.
-wl-clipboard - Command-line tools for copying and pasting through the Wayland clipboard.
-xdg-desktop-portal-hyprland - Desktop portal backend for Hyprland, including screen sharing support.
-xdg-user-dirs - Tool that manages standard user folders such as Documents and Downloads.
+# XDG desktop integration
+# xdg-desktop-portal itself is a dependency of the Hyprland backend.
+xdg-desktop-portal-gtk # File-dialog fallback required by the Hyprland portal.
+xdg-desktop-portal-hyprland
+xdg-user-dirs
+xdg-utils # xdg-open, xdg-mime, xdg-settings and desktop integration helpers.
 
-# X11, launchers and desktop appearance
-# -------------------------------------
-dmenu - Lightweight text menu commonly used as an application launcher on X11.
-lxappearance - Graphical tool for selecting GTK themes, icons and fonts.
-rofi - Application launcher, window switcher and customizable selection menu.
-xorg-xwayland - Compatibility server that runs X11 applications inside a Wayland session.
-
-# File managers and desktop file services
-# ---------------------------------------
-dolphin - KDE graphical file manager with tabs, previews and split views.
-gvfs - Virtual filesystem services that let supported applications access remote and other locations.
-thunar - Lightweight graphical file manager from the Xfce desktop.
-tumbler - Background service that generates file thumbnails for supported applications.
-yazi - Terminal file manager with previews and keyboard-driven navigation.
+# Launcher and file management
+dmenu
+dolphin
+gvfs
+thunar
+tumbler
+yazi
 
 # Browsers and communication
-# --------------------------
-chromium - Open-source web browser based on the Chromium project.
-discord - Application for community text chat, voice calls and video calls.
-firefox - Mozilla web browser for browsing websites and running web applications.
+chromium
+discord
+firefox
 
-# Audio services and controls
-# ---------------------------
-gst-plugin-pipewire - Plugin that connects GStreamer multimedia applications to PipeWire.
-libpulse - Client library that lets applications connect to PulseAudio-compatible audio servers.
-pavucontrol - Graphical mixer for managing audio devices, application volumes and routing.
-pipewire - Service for routing audio and video streams between applications and devices.
-pipewire-alsa - Compatibility configuration that routes ALSA application audio through PipeWire.
-pipewire-jack - JACK-compatible implementation that routes JACK application audio through PipeWire.
-pipewire-pulse - PulseAudio-compatible server that lets PulseAudio applications use PipeWire.
-playerctl - Command-line tool for controlling playback in compatible media players.
-wiremix - Terminal audio mixer for PipeWire.
-wireplumber - Session manager that controls PipeWire device policies and stream routing.
+# Audio and media controls
+pipewire
+pipewire-alsa
+pipewire-jack
+pipewire-pulse
+playerctl
+wiremix
+wireplumber
 
 # Images, screenshots and multimedia
-# ----------------------------------
-ffmpeg - Command-line tools for recording, converting and processing audio and video.
-flameshot - Screenshot tool with annotation and editing controls.
-grim - Tool for capturing screenshots on supported Wayland compositors.
-mpv - Media player for local and streamed audio and video.
-slurp - Tool for selecting a screen region on Wayland, often used with screenshot tools.
-yt-dlp - Command-line downloader for video and audio from supported websites.
+ffmpeg
+grim
+mpv
+slurp
+yt-dlp
 
 # Virtual machines
-# ----------------
-gnome-boxes - Graphical application for creating and running virtual machines.
+gnome-boxes
 
 # Fonts
-# -----
-noto-fonts - General-purpose Noto fonts covering many languages and writing systems.
-noto-fonts-cjk - Noto fonts for Chinese, Japanese and Korean text.
-noto-fonts-emoji - Noto color emoji font.
-terminus-font - Monospaced bitmap font for terminals, consoles and other fixed-width text.
-ttf-dejavu - General-purpose font family with broad character coverage.
-ttf-jetbrains-mono - Monospaced font designed for reading and writing code.
-ttf-jetbrains-mono-nerd - JetBrains Mono with additional icons and symbols for terminal interfaces.
-ttf-liberation - Fonts with metrics compatible with Arial, Times New Roman and Courier New.
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+terminus-font
+ttf-dejavu
+ttf-jetbrains-mono
+ttf-jetbrains-mono-nerd
+ttf-liberation
+
+# st is not included: the planned source build is outside this official-repo ISO.
